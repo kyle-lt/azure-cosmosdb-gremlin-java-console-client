@@ -1,12 +1,6 @@
----
-page_type: sample
-languages:
-- java
-products:
-- azure
-description: "Azure Cosmos DB is a globally distributed multi-model database."
-urlFragment: azure-cosmos-db-graph-java-getting-started
----
+# Background
+
+Originally used [this](https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started) project as the base for this project.
 
 # Developing a Java app using Azure Cosmos DB
 Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Graph (Gremlin) API, which provides a graph data model with [Gremlin query/traversals](https://tinkerpop.apache.org/gremlin.html). This sample shows you how to use the Azure Cosmos DB with the Graph API to store and access data from a Java application.
@@ -19,7 +13,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
    * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK)
    * Maven (Run `apt-get install maven` if you don't have Maven)
 
-* Then, clone this repository using `git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git`
+* Then, clone this repository
 
 * Next, substitute the endpoint and authorization key in the `remote.yaml` with your Cosmos DB account's values. 
 
@@ -35,6 +29,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 * From a command prompt or shell, run `mvn package` to compile and resolve dependencies.
 
 * From a command prompt or shell, run `mvn exec:java -D exec.mainClass=org.kjt.azure.java.cosmosdb.gremlin.Program` to run the application.
+* Or, to run as a far jar, `java -jar target/gremlindriverclient-1.0-SNAPSHOT.jar` to run the application.
 
 ## About the code
 The code included in this sample is intended to get you quickly started with a Java application that connects to Azure Cosmos DB with the Graph (Gremlin) API.
