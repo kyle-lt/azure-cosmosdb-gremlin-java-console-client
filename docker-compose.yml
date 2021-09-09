@@ -1,0 +1,23 @@
+version: '3.6'
+
+networks:
+  bridge:
+    driver: bridge
+
+services:
+  cosmosdb-gremlin:
+    build: .
+    image: kjtully/cosmosdb-gremlin:latest
+    environment:
+      APPDYNAMICS_CONTROLLER_HOST_NAME: "192.168.86.40"
+      APPDYNAMICS_CONTROLLER_PORT: 8090
+      APPDYNAMICS_CONTROLLER_SSL_ENABLED: "false"
+      APPDYNAMICS_AGENT_ACCOUNT_NAME: "customer1"
+      APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY: "$APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY"
+      APPDYNAMICS_AGENT_APPLICATION_NAME: "java-azure-cosmosdb-gremlin"
+      APPDYNAMICS_AGENT_TIER_NAME: "java-client"
+      APPDYNAMICS_AGENT_NODE_NAME: "reuse"
+      APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME: "true"
+      APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME_PREFIX: "java-client-node"
+    networks:
+      - bridge
