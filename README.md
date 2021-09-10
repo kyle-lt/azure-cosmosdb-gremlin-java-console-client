@@ -2,7 +2,7 @@
 
 I used [this](https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started) project as the base for this project.
 
-The purpose of this project is to illustrate how to configure AppDynamics to detect CosmosDB Gremlin API queries.  The section [AppD](#appd) walks through the steps taken and results.
+The purpose of this project is to illustrate how to configure AppDynamics to detect CosmosDB Gremlin Synchronous API queries.  This would be equally doable for Async queries, and done in a similar fashion, just not done in this repo.  The section [AppD](#appd) walks through the steps taken and results.
 
 The original README (for notes on how to config and run) starts with section [Developing a Java app using Azure Cosmos DB](#developing-a-java-app-using-azure-cosmos-db).
 
@@ -10,6 +10,7 @@ I also added a section at the very end to walk through how to [Run with Docker C
 
 ## AppD
 
+### Business Transaction
 Because this is a simple console app, the first step is to create a Business Transaction that will instrument this code.
 
 Here are the configs, and some screenshots to show them in the UI.
@@ -24,13 +25,13 @@ Here are the configs, and some screenshots to show them in the UI.
 | 3 | Match Classes | with a Class Name that, Equals, org.kjt.azure.java.cosmosdb.gremlin.Program | We want to instrument a Class (versus, perhaps an interface), and we want to Exact match the fully-qualifed Class name |
 | 3 | Method Name | Equals, executeQueries | We want to instrument via Exact match of the given method name |
 
-### Step Number 1
+Step Number 1
 ![Step Number 1](/images/gremlin_business_transaction_config_1.png)
 
-### Step Number 2
+Step Number 2
 ![Step Number 2](/images/gremlin_business_transaction_config_2.png)
 
-### Step Number 3
+Step Number 3
 ![Step Number 3](/images/gremlin_business_transaction_config_3.png)
 
 # Developing a Java app using Azure Cosmos DB
