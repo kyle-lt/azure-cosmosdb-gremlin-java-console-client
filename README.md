@@ -25,13 +25,13 @@ Here are the configs, and some screenshots to show them in the UI.
 | 3 | Match Classes | with a Class Name that, Equals, org.kjt.azure.java.cosmosdb.gremlin.Program | We want to instrument a Class (versus, perhaps an interface), and we want to Exact match the fully-qualifed Class name |
 | 3 | Method Name | Equals, executeQueries | We want to instrument via Exact match of the given method name |
 
-Step Number 1
+#### Step Number 1
 ![Step Number 1](/images/gremlin_business_transaction_config_1.png)
 
-Step Number 2
+#### Step Number 2
 ![Step Number 2](/images/gremlin_business_transaction_config_2.png)
 
-Step Number 3
+#### Step Number 3
 ![Step Number 3](/images/gremlin_business_transaction_config_3.png)
 
 # Developing a Java app using Azure Cosmos DB
