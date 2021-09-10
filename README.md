@@ -15,6 +15,7 @@ Because this is a simple console app, the first step is to create a Business Tra
 Here are the configs, and some screenshots to show them in the UI.
 
 | Step Number | Config | Value | Description |
+| ----------- | ------ | ----- | ----------- |
 | 1 | Agent Type | Java | The type of agent being used, in this case Java for a Java app |
 | 1 | Entry Point Type | POJO | Tells the agent how to apply an interceptor, in this case for a POJO (plain old java object) |
 | 2 | Name | CosmosDB-Gremlin-Call | The name of the transaction in the UI, this can be whatever is preferred |
@@ -23,10 +24,13 @@ Here are the configs, and some screenshots to show them in the UI.
 | 3 | Match Classes | with a Class Name that, Equals, org.kjt.azure.java.cosmosdb.gremlin.Program | We want to instrument a Class (versus, perhaps an interface), and we want to Exact match the fully-qualifed Class name |
 | 3 | Method Name | Equals, executeQueries | We want to instrument via Exact match of the given method name |
 
+### Step Number 1
 ![Step Number 1](/images/gremlin_business_transaction_config_1.png)
 
+### Step Number 2
 ![Step Number 2](/images/gremlin_business_transaction_config_2.png)
 
+### Step Number 3
 ![Step Number 3](/images/gremlin_business_transaction_config_3.png)
 
 # Developing a Java app using Azure Cosmos DB
