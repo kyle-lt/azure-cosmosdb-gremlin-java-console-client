@@ -1,6 +1,33 @@
 # Background
 
-Originally used [this](https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started) project as the base for this project.
+I used [this](https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started) project as the base for this project.
+
+The purpose of this project is to illustrate how to configure AppDynamics to detect CosmosDB Gremlin API queries.  The section [AppD](#appd) walks through the steps taken and results.
+
+The original README (for notes on how to config and run) starts with section [Developing a Java app using Azure Cosmos DB](#developing-a-java-app-using-azure-cosmos-db).
+
+I also added a section at the very end to walk through how to [Run with Docker Compose](#run-with-docker-compose).
+
+## AppD
+
+Because this is a simple console app, the first step is to create a Business Transaction that will instrument this code.
+
+Here are the configs, and some screenshots to show them in the UI.
+
+| Step Number | Config | Value | Description |
+| 1 | Agent Type | Java | The type of agent being used, in this case Java for a Java app |
+| 1 | Entry Point Type | POJO | Tells the agent how to apply an interceptor, in this case for a POJO (plain old java object) |
+| 2 | Name | CosmosDB-Gremlin-Call | The name of the transaction in the UI, this can be whatever is preferred |
+| 2 | Priority | 10 | This prioritizes this rule above others, 10 just makes it prioritized higher than any conflicting OOB rules |
+| 2 | Scope | Default Scope | This allows separation of rules across different services, for this case, it doesn't matter |
+| 3 | Match Classes | with a Class Name that, Equals, org.kjt.azure.java.cosmosdb.gremlin.Program | We want to instrument a Class (versus, perhaps an interface), and we want to Exact match the fully-qualifed Class name |
+| 3 | Method Name | Equals, executeQueries | We want to instrument via Exact match of the given method name |
+
+![Step Number 1](/images/gremlin_business_transaction_config_1.png)
+
+![Step Number 2](/images/gremlin_business_transaction_config_2.png)
+
+![Step Number 3](/images/gremlin_business_transaction_config_3.png)
 
 # Developing a Java app using Azure Cosmos DB
 Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Graph (Gremlin) API, which provides a graph data model with [Gremlin query/traversals](https://tinkerpop.apache.org/gremlin.html). This sample shows you how to use the Azure Cosmos DB with the Graph API to store and access data from a Java application.
@@ -41,3 +68,6 @@ The code included in this sample is intended to get you quickly started with a J
 - [Gremlin Java SDK](http://tinkerpop.apache.org/docs/current/reference/#gremlin-java)
 - [Gremlin Java Reference Documentation](http://tinkerpop.apache.org/javadocs/current/full/)
 
+## Run with Docker Compose
+
+//TODO
