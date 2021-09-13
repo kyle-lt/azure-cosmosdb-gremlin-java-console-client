@@ -70,7 +70,7 @@ The final result is that when the app is run, the Business Transaction named `Co
 Finally, the queries that are passed during application execution are visible in Transaction Snapshots:
 
 #### CosmosDB-Gremlin-Call Transaction Snapshot Queries
-![CosmosDB-Gremlin-Call Transaction Snapshot Queries](/images/gremlin_sync_transaction_snapshot_queries.png)
+![CosmosDB-Gremlin-Call Transaction Snapshot Queries](/images/gremlin_sync_transaction_snapshot_queries_only.png)
 
 # Developing a Java app using Azure Cosmos DB
 Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Graph (Gremlin) API, which provides a graph data model with [Gremlin query/traversals](https://tinkerpop.apache.org/gremlin.html). This sample shows you how to use the Azure Cosmos DB with the Graph API to store and access data from a Java application.
