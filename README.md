@@ -22,8 +22,8 @@ Here are the configs, and some screenshots to show them in the UI.
 | 2 | Name | CosmosDB-Gremlin-Call | The name of the transaction in the UI, this can be whatever is preferred |
 | 2 | Priority | 10 | This prioritizes this rule above others, 10 just makes it prioritized higher than any conflicting OOB rules |
 | 2 | Scope | Default Scope | This allows separation of rules across different services, for this case, it doesn't matter |
-| 3 | Match Classes | with a Class Name that, Equals, org.kjt.azure.java.cosmosdb.gremlin.Program | We want to instrument a Class (versus, perhaps an interface), and we want to Exact match the fully-qualifed Class name |
-| 3 | Method Name | Equals, executeQueries | We want to instrument via Exact match of the given method name |
+| 3 | Match Classes | with a Class Name that, Equals, `org.kjt.azure.java.cosmosdb.gremlin.Program` | We want to instrument a Class (versus, perhaps an interface), and we want to Exact match the fully-qualifed Class name |
+| 3 | Method Name | Equals, `executeQueries` | We want to instrument via Exact match of the given method name |
 
 #### Step Number 1
 ![Step Number 1](/images/gremlin_business_transaction_config_1.png)
@@ -42,7 +42,35 @@ The end result is that when the app is run, a new Business Transaction named `Co
 ### Custom Exit for Gremlin Query
 The AppD Java agent is great at automatically detecting exit calls for many frameworks, protocols, and scenarios - but it doesn't cover everything OOB.  In the case of CosmosDB Gremlin API, the Exit Call must be registered to the Java agent.  Everything is done in the UI.
 
+Here are the configs, and some screenshots to show them in the UI.
 
+| Step Number | Config | Value | Description |
+| ----------- | ------ | ----- | ----------- |
+| 1 | Name | Gremlin-Submit-Sync | The name of the backend in the UI, this can be whatever is preferred |
+| 1 | Type | DB | The type of icon to use in the UI, this can be whatever is preferred |
+| 1 | Class | with a Class Name that, (equals) `org.apache.tinkerpop.gremlin.driver.Client` | The fully-qualified Class name of the underlying client driver |
+| 1 | Method Name | `submit` | The method name used to execute the Gremlin query |
+| 1 | Is this method overloaded | Check Box: Yes | In the case of an overloaded method, we will provide further match our desired method signature below |
+| 1 | Method Parameters | Param Index 0: `java.lang.String` | Here we are providing the method params to match the overloaded method signature properly |
+| 2 | Display Name | query | The name of the query capture in the UI, this can be whatever is preferred |
+| 2 | Collect Data From | Radio Button: Method Parameter @index 0 | The query is being passed as a String in parameter index 0, we'll grab it from there |
+| 3 | Operation on Method Parameter | Radio Button: Use toString() | No additional processing required, just take method param value as a String |
+
+#### Step Number 1
+![Step Number 1](/images/gremlin_sync_exit_config_1.png)
+
+#### Step Number 2
+![Step Number 2](/images/gremlin_sync_exit_config_2.png)
+
+The final result is that when the app is run, the Business Transaction named `CosmosDB-Gremlin-Call` shows the Exit Call to Gremlin in the Flow Map:
+
+#### CosmosDB-Gremlin-Call Flow Map
+![CosmosDB-Gremlin-Call Flow Map](/images/gremlin-flowmap.png)
+
+Finally, the queries that are passed during application execution are visible in Transaction Snapshots:
+
+#### CosmosDB-Gremlin-Call Transaction Snapshot Queries
+![CosmosDB-Gremlin-Call Transaction Snapshot Queries](/images/gremlin-sync-transaction-snapshot-queries.png)
 
 # Developing a Java app using Azure Cosmos DB
 Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Graph (Gremlin) API, which provides a graph data model with [Gremlin query/traversals](https://tinkerpop.apache.org/gremlin.html). This sample shows you how to use the Azure Cosmos DB with the Graph API to store and access data from a Java application.
