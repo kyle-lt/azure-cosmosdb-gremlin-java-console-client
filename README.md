@@ -132,6 +132,7 @@ docker-compose build
 #### Prepare environment and run
 
 - Update `.env_public` with your AppD Access Key, and rename the file to `.env`
+- Update `environment` section in `docker-commpose.yml` appropriately
 - Run command 
 
 ```bash
