@@ -34,6 +34,16 @@ Here are the configs, and some screenshots to show them in the UI.
 #### Step Number 3
 ![Step Number 3](/images/gremlin_business_transaction_config_3.png)
 
+The end result is that when the app is run, a new Business Transaction named `CosmosDB-Gremlin-Call` shows up in the Business Transaction List:
+
+#### Business Transaction List
+![Business Transaction List](/images/gremlin_business_transaction_list.png)
+
+### Custom Exit for Gremlin Query
+The AppD Java agent is great at automatically detecting exit calls for many frameworks, protocols, and scenarios - but it doesn't cover everything OOB.  In the case of CosmosDB Gremlin API, the Exit Call must be registered to the Java agent.  Everything is done in the UI.
+
+
+
 # Developing a Java app using Azure Cosmos DB
 Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Graph (Gremlin) API, which provides a graph data model with [Gremlin query/traversals](https://tinkerpop.apache.org/gremlin.html). This sample shows you how to use the Azure Cosmos DB with the Graph API to store and access data from a Java application.
 
