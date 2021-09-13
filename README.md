@@ -44,7 +44,7 @@ The AppD Java agent is great at automatically detecting exit calls for many fram
 
 Here are the configs, and some screenshots to show them in the UI.
 
-| Step Number | Config | Value | Description |
+| Step Number | Config | Value | Description |  
 | ----------- | ------ | ----- | ----------- |
 | 1 | Name | Gremlin-Submit-Sync | The name of the backend in the UI, this can be whatever is preferred |
 | 1 | Type | DB | The type of icon to use in the UI, this can be whatever is preferred |
@@ -65,12 +65,12 @@ Here are the configs, and some screenshots to show them in the UI.
 The final result is that when the app is run, the Business Transaction named `CosmosDB-Gremlin-Call` shows the Exit Call to Gremlin in the Flow Map:
 
 #### CosmosDB-Gremlin-Call Flow Map
-![CosmosDB-Gremlin-Call Flow Map](/images/gremlin-flowmap.png)
+![CosmosDB-Gremlin-Call Flow Map](/images/gremlin_flowmap.png)
 
 Finally, the queries that are passed during application execution are visible in Transaction Snapshots:
 
 #### CosmosDB-Gremlin-Call Transaction Snapshot Queries
-![CosmosDB-Gremlin-Call Transaction Snapshot Queries](/images/gremlin-sync-transaction-snapshot-queries.png)
+![CosmosDB-Gremlin-Call Transaction Snapshot Queries](/images/gremlin_sync_transaction_snapshot_queries.png)
 
 # Developing a Java app using Azure Cosmos DB
 Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Graph (Gremlin) API, which provides a graph data model with [Gremlin query/traversals](https://tinkerpop.apache.org/gremlin.html). This sample shows you how to use the Azure Cosmos DB with the Graph API to store and access data from a Java application.
