@@ -113,4 +113,27 @@ The code included in this sample is intended to get you quickly started with a J
 
 ## Run with Docker Compose
 
-//TODO
+#### Build Fat Executable JAR
+
+- Run command
+
+```bash
+mvn clean package
+```
+
+#### Build Docker Image
+
+- Run command 
+
+```bash
+docker-compose build
+```
+
+#### Prepare environment and run
+
+- Update `.env_public` with your AppD Access Key, and rename the file to `.env`
+- Run command 
+
+```bash
+docker-compose up -d
+```
