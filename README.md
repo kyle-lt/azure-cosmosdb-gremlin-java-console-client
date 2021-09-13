@@ -50,7 +50,7 @@ Here are the configs, and some screenshots to show them in the UI.
 | 1 | Type | DB | The type of icon to use in the UI, this can be whatever is preferred |
 | 1 | Class | with a Class Name that, (equals) `org.apache.tinkerpop.gremlin.driver.Client` | The fully-qualified Class name of the underlying client driver |
 | 1 | Method Name | `submit` | The method name used to execute the Gremlin query |
-| 1 | Is this method overloaded | Check Box: Yes | In the case of an overloaded method, we will provide further match our desired method signature below |
+| 1 | Is this method overloaded? | Check Box: Yes | In the case of an overloaded method, we will provide further match our desired method signature below |
 | 1 | Method Parameters | Param Index 0: `java.lang.String` | Here we are providing the method params to match the overloaded method signature properly |
 | 2 | Display Name | query | The name of the query capture in the UI, this can be whatever is preferred |
 | 2 | Collect Data From | Radio Button: Method Parameter @index 0 | The query is being passed as a String in parameter index 0, we'll grab it from there |
